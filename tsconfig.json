@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "noLib": false,
+    "emitDecoratorMetadata":true,
+    "experimentalDecorators":true,
+    "noEmitOnError":true,
+    "moduleResolution":"node"
+  },
+  "exclude": [
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
+  ]
+}
