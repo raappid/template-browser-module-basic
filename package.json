@@ -8,9 +8,7 @@
     "dist"
   ],
   "typings": "./typings/browser.d.ts",
-  "dependencies": {
-    "document-register-element": "0.5.4"
-  },
+  "dependencies": {},
   "description": "",
   "devDependencies": {
     "coveralls": "2.11.6",
