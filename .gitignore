@@ -11,3 +11,7 @@ coverage
 dist
 npm-debug.log
 .env
+
+# remove below is you want stand alone files be checked into repo
+standalone
+

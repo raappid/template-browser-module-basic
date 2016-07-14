@@ -9,8 +9,8 @@ if(argv._ && argv._.length > 0) //look release build
 
     util.series(["npm test",
         "npm run build-release",
-/*        "git add -A",                                         //enable this code if you want standalone files be checked into github
-        "git commit -m" + '"'+"releasing new version" +'"',*/
+/*        "git add -A",                                      //enable this code if you want standalone files be checked into github
+        "git commit -m" + '"'+"releasing new version" +'"',  // remember to also update .gitignore to stop ignoring standalone folder    */
         cmd,
         "git push","git push --tags"],function(err){
         if(err)
