@@ -8,8 +8,12 @@
 // execute a single shell command where "cmd" is a string
 exports.exec = function(cmd, cb){
     // this would be way easier on a shell/bash script :P
-    var spawn = require('cross-spawn-async');
-    var parts = cmd.split(/\s+/g);
+    var spawn = require('cross-spawn');
+    
+    var parts = [].concat.apply([], cmd.split('"').map(function(v,i){
+        return i%2 ? '"'+v+'"' : v.split(' ')
+    })).filter(Boolean);
+    
     var p = spawn(parts[0], parts.slice(1), {cwd:process.cwd(),stdio: 'inherit'});
 
     p.on('exit', function(code){
