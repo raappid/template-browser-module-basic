@@ -14,7 +14,7 @@ if(argv._ && argv._.length > 0) //look release build
 
  //enable this code only if you want standalone files be checked into github,
  // remember to also update .gitignore to stop ignoring standalone folder 
- //remember you can also access the standalone files from npm, "https://npmcdn.com/<package-name>/standalone/<package-name>.js"  
+ //remember you can also access the standalone files from npm, "https://unpkg.com/<package-name>/standalone/<package-name>.js"  
            */
         cmd,
         "git push","git push --tags"],function(err){
