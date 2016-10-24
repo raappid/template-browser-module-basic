@@ -4,14 +4,13 @@
     "module": "commonjs",
     "noImplicitAny": false,
     "noLib": false,
+    "skipLibCheck":true,
     "emitDecoratorMetadata":true,
     "experimentalDecorators":true,
     "noEmitOnError":true,
     "moduleResolution":"node"
   },
   "exclude": [
-    "node_modules",
-    "typings/main.d.ts",
-    "typings/main"
+    "node_modules"
   ]
 }
