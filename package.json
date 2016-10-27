@@ -51,9 +51,7 @@
   },
   "system": {
     "npmIgnore": [
-      "devDependencies",
-      "connect",
-      "serve-static"
+      "devDependencies"
     ],
     "npmAlgorithm": "flat"
   },
