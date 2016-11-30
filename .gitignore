@@ -9,6 +9,7 @@ test/**/*.js
 **/*.map
 coverage
 dist
+temp
 npm-debug.log
 .env
 

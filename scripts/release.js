@@ -7,10 +7,29 @@ if(argv._ && argv._.length > 0) //look release build
 
     var cmd = "npm version " + argv._[0];
 
-    util.series(["npm test",
-        "npm run build-release",
-        cmd,
-        "git push","git push --tags"],function(err){
+    util.series([
+
+        "npm test",
+
+        ["git checkout master","checked out master branch"],
+
+        ["git checkout -b production","checked out production branch"],
+
+        ["git rebase master", "Rebasing from Master"],
+
+        [cmd,"increasing version number and tagging"],
+
+        "git push --follow-tags",
+
+        ['git checkout master',"checked out master branch.."],
+
+        "git merge --no-ff --no-edit master production",
+
+        "git push",
+
+        ['git branch -D production',"production branch deleted..release Done!!"]
+
+    ],function(err){
         if(err)
         {
             console.log(err);

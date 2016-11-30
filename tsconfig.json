@@ -8,6 +8,7 @@
     "emitDecoratorMetadata":true,
     "experimentalDecorators":true,
     "noEmitOnError":true,
+    "lib": ["es5", "es6","dom","scripthost"],
     "moduleResolution":"node"
   },
   "exclude": [

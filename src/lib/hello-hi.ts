@@ -8,6 +8,6 @@ export function sayHello():string
 
 export function sayHi():string
 {
-    console.log("saying hi...");
+    console.log("saying...");
     return "hi";
 }
