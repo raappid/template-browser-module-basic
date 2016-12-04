@@ -2,7 +2,6 @@
 
 var util = require('./util');
 var argv = require('minimist')(process.argv.slice(2));
-var cpy = require("cpy");
 var ncu = require("npm-check-updates");
 
 var options = {

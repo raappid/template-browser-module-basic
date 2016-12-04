@@ -21,7 +21,7 @@ config.srcDir = srcDir;
 
 config.bundleMainFile = config.distDirTemp + "/" + srcDirName+ "/main.js";
 
-config.testDir = rootDir + "/test";
+config.testsDir = rootDir + "/tests";
 
 config.standAloneDir = distDir + '/' + standaloneDir;
 

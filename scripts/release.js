@@ -11,23 +11,23 @@ if(argv._ && argv._.length > 0) //look release build
 
         "npm test",
 
-        "git checkout master",
+        ["git checkout master","checked out master branch"],
 
-        "git checkout -b production",
+        ["git checkout -b production","checked out production branch"],
 
-        "git rebase master",
+        ["git rebase master", "Rebasing from Master"],
 
-        cmd,
+        [cmd,"increasing version number and tagging"],
 
         "git push --follow-tags",
 
-        'git checkout master',
+        ['git checkout master',"checked out master branch.."],
 
         "git merge --no-ff --no-edit master production",
 
         "git push",
 
-        'git branch -D production'
+        ['git branch -D production',"production branch deleted..release Done!!"]
 
     ],function(err){
         if(err)

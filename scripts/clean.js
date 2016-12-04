@@ -7,8 +7,8 @@ var paths = del.sync([
     'coverage',
     projectConfig.srcDir +'/**/*.js',
     projectConfig.srcDir +'/**/*.map',
-    projectConfig.testDir+"/**/*.js",
-    projectConfig.testDir +'/**/*.map',
+    projectConfig.testsDir+"/**/*.js",
+    projectConfig.testsDir +'/**/*.map',
     projectConfig.distDir,projectConfig.distDirTemp]);
 
 console.log('Deleted files/folders:\n', paths.join('\n'));
