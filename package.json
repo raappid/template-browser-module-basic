@@ -52,16 +52,16 @@
     "type": ""
   },
   "scripts": {
+    "install-deps": "npm install && node scripts/install-other-dependencies.js",
+    "clean": "node scripts/clean.js",
     "build": "node scripts/build.js",
     "build-release": "cross-env NODE_ENV=production npm run build",
-    "clean": "node scripts/clean.js",
-    "install-deps": "npm install && node scripts/install-other-dependencies.js",
-    "release-major": "cross-env RELEASE_TYPE=major node scripts/release.js",
-    "release-minor": "cross-env RELEASE_TYPE=minor node scripts/release.js",
-    "release-patch": "cross-env RELEASE_TYPE=patch node scripts/release.js",
     "test": "cross-env NODE_ENV=test node scripts/test.js",
     "test-chrome": "cross-env TEST_BROWSER=Chrome node scripts/test.js",
     "test-firefox": "cross-env TEST_BROWSER=Firefox node scripts/test.js",
+    "release-major": "cross-env RELEASE_TYPE=major node scripts/release.js",
+    "release-minor": "cross-env RELEASE_TYPE=minor node scripts/release.js",
+    "release-patch": "cross-env RELEASE_TYPE=patch node scripts/release.js",
     "report-coverage": "node scripts/report-coverage.js"
   },
   "bugs": {
