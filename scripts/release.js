@@ -1,11 +1,10 @@
 
 var util = require('./util');
-var argv = require('minimist')(process.argv.slice(2));
 
-if(argv._ && argv._.length > 0) //look release build
+if(process.env.RELEASE_TYPE) //look release build
 {
 
-    var cmd = "npm version " + argv._[0];
+    var cmd = "npm version " + process.env.RELEASE_TYPE;
 
     util.series([
 
@@ -42,10 +41,7 @@ if(argv._ && argv._.length > 0) //look release build
 }
 else
 {
-    console.log("\n Cannot Recognize the type of release. Please see instructions below");
-    console.log('\n Options:\n\n raapid-release [release-type]' +
-        '      --- Give type of release:  major | minor | patch | premajor | preminor | prepatch | prerelease\n'
-    );
+    console.log("\n Cannot Recognize the type of release");
 
     process.exit(1);
 }
