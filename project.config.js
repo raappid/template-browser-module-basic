@@ -11,7 +11,7 @@ var srcDir = rootDir + "/" + srcDirName;
 var distDir = rootDir + "/" + distDirName;
 var distDirTemp = rootDir + "/" + tempDirName;
 
-var standaloneDir = "standalone";
+var standaloneDir = "bin";
 
 config.srcDirName = srcDirName;
 config.rootDir = rootDir;

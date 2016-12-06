@@ -5,8 +5,7 @@
     "name": ""
   },
   "files": [
-    "dist",
-    "standalone"
+    "dist"
   ],
   "typings": "./dist/main.d.ts",
   "dependencies": {},
