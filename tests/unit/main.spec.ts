@@ -1,17 +1,15 @@
 
-
 import {sayHelloAndHi} from "../../src/main";
 import helloHI = require("../../src/lib/hello-hi");
 
-describe("main Spec",()=>{
+describe("main Spec", () => {
 
-    describe("sayHelloAndHi",()=>{
+    describe("sayHelloAndHi", () => {
 
+        it("should resolve with hello and hi", () => {
 
-        it("should resolve with hello and hi",()=>{
-
-            spyOn(helloHI,"sayHello").and.returnValue("helloStub");
-            spyOn(helloHI,"sayHi").and.returnValue("hiStub");
+            spyOn(helloHI, "sayHello").and.returnValue("helloStub");
+            spyOn(helloHI, "sayHi").and.returnValue("hiStub");
 
             expect(sayHelloAndHi()).toEqual("helloStub and hiStub");
 
@@ -19,4 +17,3 @@ describe("main Spec",()=>{
 
     });
 });
-

@@ -1,24 +1,67 @@
 
-var util = require('./util');
+const util = require('./util');
 
 if(process.env.RELEASE_TYPE) //look release build
 {
-
-    var cmd = "npm version " + process.env.RELEASE_TYPE;
-
     util.series([
 
         "npm test",
 
-        ["git checkout master","checked out master branch"],
+        ["git fetch","fetch all branches"],
 
-        ["git checkout -b production","checked out production branch"],
+        ["git checkout master","checked out master branch"]
 
-        ["git rebase master", "Rebasing from Master"],
+    ],function(err){
+
+        if(err)
+        {
+            console.log(err);
+            process.exit(1);
+        }
+
+        util.exec("git checkout production",function(err) {
+
+            if(err)
+            {
+                util.exec("git checkout -b production",function(err) {
+
+                    if(err)
+                    {
+                        console.log(err);
+                        process.exit(1);
+                    }
+
+                    doProdMergeAndPush();
+
+
+                });
+            } else {
+                doProdMergeAndPush();
+            }
+
+        });
+
+    });
+
+}
+else
+{
+    console.log("\n Cannot Recognize the type of release");
+
+    process.exit(1);
+}
+
+function doProdMergeAndPush() {
+
+    let cmd = "npm version " + process.env.RELEASE_TYPE;
+
+    util.series([
+
+        ["git merge --no-ff --no-edit production master", "merging from Master"],
 
         [cmd,"increasing version number and tagging"],
 
-        "git push --follow-tags",
+        "git push --follow-tags --set-upstream origin production",
 
         ['git checkout master',"checked out master branch.."],
 
@@ -37,12 +80,4 @@ if(process.env.RELEASE_TYPE) //look release build
 
         process.exit(0);
     });
-
 }
-else
-{
-    console.log("\n Cannot Recognize the type of release");
-
-    process.exit(1);
-}
-

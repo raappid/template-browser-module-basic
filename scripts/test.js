@@ -1,36 +1,47 @@
 
-var util = require('./util');
+const util = require('./util');
 
-if(process.env.TEST_BROWSER)
-{
 
-    var testCMD = "karma start";
+util.exec("npm run lint",(err) =>{
+    if(err)
+    {
+        console.log(err);
+        process.exit(1);
+    }
 
-    testCMD = testCMD + " --browsers " + process.env.TEST_BROWSER;
-    util.series([testCMD], function(err){
+    if(process.env.TEST_BROWSER)
+    {
 
-        if(err)
-        {
-            console.log(err);
-            process.exit(1);
-        }
+        var testCMD = "karma start";
 
-        process.exit(0);
-    });
-}
-else
-{
+        testCMD = testCMD + " --browsers " + process.env.TEST_BROWSER;
+        util.series([testCMD], function(err){
 
-    util.series(["npm run clean","karma start --single-run --no-auto-watch --browsers PhantomJS"], function(err){
+            if(err)
+            {
+                console.log(err);
+                process.exit(1);
+            }
 
-        if(err)
-        {
-            console.log(err);
-            process.exit(1);
-        }
+            process.exit(0);
+        });
+    }
+    else
+    {
 
-        process.exit(0);
-    });
-}
+        util.series(["npm run clean","karma start --single-run --no-auto-watch --browsers PhantomJS"], function(err){
+
+            if(err)
+            {
+                console.log(err);
+                process.exit(1);
+            }
+
+            process.exit(0);
+        });
+    }
+
+});
+
 
 

@@ -1,11 +1,11 @@
 
-var webpack = require("webpack");
+const webpack = require("webpack");
 
 module.exports = function (options) {
 
     if(!options) options = {};
 
-    var devConfig = Object.assign({},require("./common.config")(options));// setting common config
+    let devConfig = Object.assign({},require("./common.config")(options));// setting common config
 
     /*************************
      * Extending Output

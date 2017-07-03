@@ -1,17 +1,25 @@
 
-var path = require("path");
+const path = require("path");
 
 const config = {};
 
-var rootDir = path.resolve("./");
-var srcDirName = "src";
-var distDirName = "dist";
-var tempDirName = "temp";
-var srcDir = rootDir + "/" + srcDirName;
-var distDir = rootDir + "/" + distDirName;
-var distDirTemp = rootDir + "/" + tempDirName;
+const rootDir = path.resolve("./");
+const srcDirName = "src";
+const distDirName = "dist";
+const tempDirName = "temp";
+const srcDir = rootDir + "/" + srcDirName;
+const distDir = rootDir + "/" + distDirName;
+const distDirTemp = rootDir + "/" + tempDirName;
 
-var standaloneDir = "bin";
+const standaloneDir = "bin";
+
+config.Environments = {
+
+    DEVELOPMENT:"development",
+    TEST:"test",
+    PRODUCTION:"production"
+
+};
 
 config.srcDirName = srcDirName;
 config.rootDir = rootDir;
