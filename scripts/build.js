@@ -25,7 +25,7 @@ if(isProductionBuild)
 else
     cmd = cmd + " --sourceMap";
 
-util.series(["npm run clean",cmd], function (err) {
+util.series(["npm run clean","npm run lint",cmd], function (err) {
 
     if(err)
     {

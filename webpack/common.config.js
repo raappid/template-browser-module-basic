@@ -1,8 +1,8 @@
 
-var webpack = require("webpack");
-var projectConfig = require("../project.config");
-var pkg = require("../package.json");
-var util = require("../scripts/util");
+const webpack = require("webpack");
+const projectConfig = require("../project.config");
+const pkg = require("../package.json");
+const util = require("../scripts/util");
 
 module.exports = function (options) {
 
@@ -10,15 +10,15 @@ module.exports = function (options) {
      * Common Entry
      **************************/
 
-    var entry = projectConfig.bundleMainFile;
+    let entry = projectConfig.bundleMainFile;
 
 
     /*************************
      * Common Plugins
      **************************/
 
-    var plugins = [
-        new webpack.NoErrorsPlugin(),
+    let plugins = [
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin()
     ];
 
@@ -26,20 +26,20 @@ module.exports = function (options) {
      * Common rules
      **************************/
 
-    var typescriptLoader = {test: /\.tsx?$/,
+    let typescriptLoader = {test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
         query: {
             tsconfig: projectConfig.rootDir+"/tsconfig.json"
         }
     };
 
-    if(options.env == "test" && !options.isLocalTesting) //adding inline source map only for test node environment
+    if(options.env === projectConfig.Environments.TEST && !options.isLocalTesting) //adding inline source map only for test node environment
     {
         typescriptLoader.query.sourceMap = false;
         typescriptLoader.query.inlineSourceMap = true;
     }
 
-    var rules = [typescriptLoader];
+    let rules = [typescriptLoader];
 
     return {
         entry:entry,

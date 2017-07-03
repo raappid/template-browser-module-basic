@@ -1,12 +1,12 @@
 
-var webpack = require("webpack");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var projectConfig = require("../project.config");
-var pkg = require("../package.json");
+const webpack = require("webpack");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const projectConfig = require("../project.config");
+const pkg = require("../package.json");
 
 module.exports = function (options) {
 
-    var prodConfig = Object.assign({},require("./common.config")(options));
+    let prodConfig = Object.assign({},require("./common.config")(options));
 
 
     /*************************

@@ -1,12 +1,11 @@
 
 import main = require("../../src/main");
 
-describe('my-manager Integration Test cases', () => {
+describe("my-manager Integration Test cases", () => {
 
+    describe("sayHello", () => {
 
-    describe("sayHello",()=>{
-
-        it("should resolve with hello and hi",()=>{
+        it("should resolve with hello and hi", () => {
 
             expect(main.sayHelloAndHi()).toEqual("hello and hi");
 

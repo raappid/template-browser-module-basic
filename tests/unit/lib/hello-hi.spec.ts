@@ -1,23 +1,22 @@
 
-import {sayHello,sayHi} from "../../../src/lib/hello-hi";
+import {sayHello, sayHi} from "../../../src/lib/hello-hi";
 
-describe("hello-hi Spec",()=>{
+describe("hello-hi Spec", () => {
 
-    describe("sayHello",()=>{
+    describe("sayHello", () => {
 
-        it("should resolve with 'hello' ",()=>{
+        it("should resolve with 'hello' ", () => {
             expect(sayHello()).toEqual("hello");
 
         });
 
     });
 
-    describe("sayHi",()=>{
+    describe("sayHi", () => {
 
-        it("should resolve retrun 'hi' ",()=>{
+        it("should resolve retrun 'hi' ", () => {
 
             expect(sayHi()).toEqual("hi");
         });
-    })
+    });
 });
-

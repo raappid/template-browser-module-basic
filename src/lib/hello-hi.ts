@@ -1,13 +1,10 @@
 
-
-export function sayHello():string
-{
+export function sayHello():string {
    console.log("saying hello...");
-   return "hello"
+   return "hello";
 }
 
-export function sayHi():string
-{
+export function sayHi():string {
     console.log("saying...");
     return "hi";
 }
